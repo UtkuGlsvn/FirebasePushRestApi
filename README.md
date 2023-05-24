@@ -1,2 +1,3 @@
 # FirebasePushRestApi
-Firebasepush rest api, python
+python enhanced example  project to make firebase notification request
+
