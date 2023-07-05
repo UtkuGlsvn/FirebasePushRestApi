@@ -4,25 +4,28 @@ python enhanced example  project to make firebase notification request
 
 ```
 
-cred = credentials.Certificate("serviceAccountKey.json")
-firebase_admin.initialize_app(cred)
 
+cred = credentials.Certificate("serviceAccountKey.json") #  your service account key -> Get firebase console
+firebase_admin.initialize_app(cred) 
 
 messaging = firebase_admin.messaging
 
 
-registration_token = "fDDmVgKjQsqCW3XLnfDJMg:APA91bE2pi2X-nXJ1KYD51aGm7yXXpflM-gFlVwElPPeRrvoHJJ1TDlgaChaO43GxZJQAXESj_qI2bApYsRD_DZs0KbEaHdGlgBpk3Gc8oOQYhNNoHWS0BkIkoOkfNXAKtC0v-3Uda2l"
+registration_token = "your device id"
 
+#example message data
 
 message = messaging.Message(
     data={
-        "title": "Astopia",
-        "body": "Astopia",
-        "deeplink":"astopia://Page=discovery"
+        "title": "Notif Title",
+        "body": "Notif body",
+        "deeplink":"myapp://..."
     },
     token=registration_token,
-)
+) 
 
 
 response = messaging.send(message)
+print("Message ID:", response)
+
 ```
